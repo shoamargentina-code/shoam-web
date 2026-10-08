@@ -1068,8 +1068,8 @@ function checkPagoRetorno(){
   const wa=`<a class="btn-pay wa" style="text-decoration:none" target="_blank" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMsg)}">Enviar mis datos por WhatsApp</a>`;
   const waUrl=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMsg)}`;
   const auto=()=>{let n=5;const el=document.getElementById('waCount');const t=setInterval(()=>{n--;if(el)el.textContent=n;if(n<=0){clearInterval(t);location.href=waUrl;}},1000);};
-  if(st==='ok'){inner.innerHTML=`<h3>¡Gracias por tu compra!</h3><p>Tu pago fue aprobado. <b>Último paso:</b> en <span id="waCount">5</span> segundos se abre WhatsApp con tu pedido y tus datos de envío. Solo tenés que tocar <b>Enviar</b>.</p>${wa}`;CART={};saveCart();updateFab();auto();}
-  else if(st==='pendiente'){inner.innerHTML=`<h3>Pago en proceso</h3><p>Mercado Pago está procesando tu pago. Apenas se acredite, despachamos tu pedido. En <span id="waCount">5</span> segundos se abre WhatsApp para que nos mandes tus datos de envío.</p>${wa}`;CART={};saveCart();updateFab();auto();}
+  if(st==='ok'){inner.innerHTML=`<h3>¡Gracias por tu compra!</h3><p>Tu pago fue aprobado y ya recibimos tu pedido con tus datos de envío. Te vamos a escribir por WhatsApp para confirmarte el despacho por Andreani.</p>`;CART={};saveCart();updateFab();}
+  else if(st==='pendiente'){inner.innerHTML=`<h3>Pago en proceso</h3><p>Mercado Pago está procesando tu pago. Ya tenemos tus datos de envío: apenas se acredite, despachamos tu pedido y te avisamos por WhatsApp.</p>`;CART={};saveCart();updateFab();}
   else{inner.innerHTML=`<h3>El pago no se completó</h3><p>No se realizó ningún cobro. Tu carrito sigue guardado: podés intentar de nuevo o pagar por transferencia con ${OFF}% OFF.</p><button class="btn-pay mpay" onclick="document.getElementById('payMsg').hidden=true;openCart()">Volver al carrito</button>`;}
   inner.innerHTML+=`<p style="margin:14px 0 0"><a href="#" onclick="document.getElementById('payMsg').hidden=true;return false" style="color:var(--muted);font-size:.9rem">Cerrar</a></p>`;
   box.hidden=false; history.replaceState(null,'',location.pathname+'#tienda');

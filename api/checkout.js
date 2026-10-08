@@ -62,6 +62,8 @@ module.exports = async (req, res) => {
         failure: `${SITE}/?pago=error`,
       },
       auto_return: "approved",
+      // Mercado Pago avisa acá cada pago; /api/webhook nos manda el correo con los datos de envío.
+      notification_url: `${SITE}/api/webhook?source_news=webhooks`,
     };
 
     const r = await fetch("https://api.mercadopago.com/checkout/preferences", {
