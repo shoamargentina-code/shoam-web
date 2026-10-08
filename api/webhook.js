@@ -35,7 +35,7 @@ module.exports = async (req, res) => {
   const resend = process.env.RESEND_API_KEY;
   if (!token || !resend) {
     console.error("Falta MP_ACCESS_TOKEN o RESEND_API_KEY");
-    return res.status(200).send("ok");
+    return res.status(200).send(!resend ? "falta RESEND_API_KEY" : "falta MP_ACCESS_TOKEN");
   }
 
   try {
@@ -95,7 +95,8 @@ ${wa ? `<p style="margin-top:20px"><a href="${wa}" style="background:#25d366;col
         html, text,
       }),
     });
-    if (!e.ok && e.status !== 409) console.error("Resend:", e.status, await e.text());
+    if (!e.ok && e.status !== 409) { const t = await e.text(); console.error("Resend:", e.status, t); return res.status(200).send("resend error " + e.status); }
+    return res.status(200).send("correo enviado");
   } catch (err) {
     console.error(err);
   }
