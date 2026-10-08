@@ -54,7 +54,8 @@ module.exports = async (req, res) => {
         nombre: clip(c.nombre), dni: clip(c.dni, 20), whatsapp: clip(c.tel, 40), email: clip(c.email, 80),
         direccion: clip(c.dir), localidad: clip(c.loc), provincia: clip(c.prov, 60), cp: clip(c.cp, 12), notas: clip(c.notas, 200),
       },
-      payment_methods: { installments: 12 },
+      // Máximo 3 cuotas: es lo único que ofrecemos sin interés. Con más cuotas, MP nos cobra el costo financiero.
+      payment_methods: { installments: 3 },
       back_urls: {
         success: `${SITE}/?pago=ok`,
         pending: `${SITE}/?pago=pendiente`,
