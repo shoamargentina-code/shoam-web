@@ -19,6 +19,9 @@ const PRODUCTOS = {
   "m-2v1a":  { title: "Promo Mixta · 2 Vinagres 500 ml + 1 Aceite 500 ml",             tarjeta: 50000 },
   "m-3v3a":  { title: "Promo Mixta · 3 Vinagres 500 ml + 3 Aceites 500 ml",            tarjeta: 97000 },
   "m-5l5l":  { title: "Promo Mixta · Bidón Aceite 5 L + Bidón Vinagre 5 L",            tarjeta: 190000 },
+  "s-3":     { title: "Sidra SHOAM 750 ml · Promo 3 botellas",                        tarjeta: 37500 },
+  "s-6":     { title: "Sidra SHOAM 750 ml · Promo 6 botellas",                        tarjeta: 62500 },
+  "s-12":    { title: "Sidra SHOAM 750 ml · Promo 12 botellas",                       tarjeta: 106300 },
 };
 const SITE = "https://www.shoam.com.ar";
 
